@@ -68,10 +68,11 @@ SELECT * FROM tb_pizzas WHERE preco > 25;
 SELECT * FROM tb_pizzas WHERE preco BETWEEN 20 AND 25;
 SELECT * FROM tb_pizzas WHERE nome LIKE "%m%";
 
-SELECT nome, preco, quantidade, tb_categorias.tipo
+SELECT nome, preco, quantidade, tb_categorias.tipo, tb_categorias.tamanho
 FROM tb_pizzas INNER JOIN tb_categorias
 ON tb_pizzas.categoriasid = tb_categorias.id;
 
-SELECT nome, preco, quantidade, tb_categorias.tamanho
+SELECT nome, preco, quantidade, tb_categorias.tamanho, tb_categorias.tipo
 FROM tb_pizzas INNER JOIN tb_categorias 
-ON tb_pizzas.categoriasid = tb_categorias.id;
+ON tb_pizzas.categoriasid = tb_categorias.id
+WHERE tb_categorias.tipo = "doce";

@@ -68,10 +68,11 @@ SELECT * FROM tb_produtos WHERE preco > 50;
 SELECT * FROM tb_produtos WHERE preco BETWEEN 5 AND 60;
 SELECT * FROM tb_produtos WHERE nome LIKE "%m%";
 
-SELECT nome, preco, quantidade, tb_categorias.tipo
+SELECT nome, preco, quantidade, tb_categorias.tipo,  tb_categorias.genero
 FROM tb_produtos INNER JOIN tb_categorias
 ON tb_produtos.categoriasid = tb_categorias.id;
 
-SELECT nome, preco, quantidade, tb_categorias.genero
+SELECT nome, preco, quantidade, tb_categorias.genero, tb_categorias.tipo
 FROM tb_produtos INNER JOIN tb_categorias 
-ON tb_produtos.categoriasid = tb_categorias.id;
+ON tb_produtos.categoriasid = tb_categorias.id
+WHERE tb_categorias.tipo = "comprimido";
